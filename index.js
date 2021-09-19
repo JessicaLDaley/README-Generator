@@ -4,7 +4,7 @@ const util = require('util');
 
 // Modules
 const api = require('./utils/api.js');
-const generateMarkdown = require('./utils/generateMarkdown.js');
+const generateReadme = require('./utils/table-of-contents.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -12,10 +12,22 @@ const questions = [
         type: 'input',
         message: "What is your GitHub username? (No @ needed)",
         name: 'username',
-        default: 'connietran-dev',
+        default: 'JessicaDaley',
         validate: function (answer) {
             if (answer.length < 1) {
-                return console.log("A valid GitHub username is required.");
+                return console.log("You must enter a valid GitHub username to generate a README");
+            }
+            return true;
+        }
+    },
+    {
+        type: 'input',
+        message: "PLease enter your email address",
+        name: 'email',
+        default: 'jessicadaley127@gmail.com',
+        validate: function (answer) {
+            if (answer.length < 1) {
+                return console.log("A valid email is required.");
             }
             return true;
         }
@@ -27,7 +39,7 @@ const questions = [
         default: 'readme-generator',
         validate: function (answer) {
             if (answer.length < 1) {
-                return console.log("A valid GitHub repo is required for a badge.");
+                return console.log("You must enter a valid GitHub repo to recieve a badge.");
             }
             return true;
         }
@@ -85,42 +97,40 @@ const questions = [
 ];
 
 
-//questions().then(answers => console.log(answers));
-
-// Write to file function 
+// Write to file  
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, err => {
         if (err) {
-          return console.log(err);
+            return console.log(err);
         }
-      
-        console.log("Your README.md file has been generated successfully!")
+
+        console.log("Your README file has been generated!")
     });
 }
 
 const writeFileAsync = util.promisify(writeToFile);
 
 
-// Main function
+
 async function init() {
     try {
 
         // Prompt Inquirer questions
         const userAnswers = await inquirer.prompt(questions);
         console.log("Your answers: ", userAnswers);
-        console.log("Thank you for your answers! Fetching your GitHub data...");
-    
+        console.log("Hold tight! Fetching your GitHub...");
+
         // Call GitHub api for user info
         const userInfo = await api.getUser(userAnswers);
         console.log("Your GitHub user info: ", userInfo);
-    
-        // Pass Inquirer useranswers and GitHub userInfo to generateMarkdown
+
+        // Pass Inquirer useranswers and GitHub userInfo to readme
         console.log("Generating your README...")
-        const markdown = generateMarkdown(userAnswers, userInfo);
-        console.log(markdown);
-    
-        // Write markdown to file
-        await writeFileAsync('ExampleREADME.md', markdown);
+        const input = generateReadme(userAnswers, userInfo);
+        console.log(input);
+
+        // Write table-of-contents to file
+        await writeFileAsync('ExampleREADME.md', input);
 
     } catch (error) {
         console.log(error);
