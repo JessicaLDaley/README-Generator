@@ -10,7 +10,7 @@ const generateReadme = require('./utils/table-of-contents.js');
 const questions = [
     {
         type: 'input',
-        message: "What is your GitHub username? (No @ needed)",
+        message: "PLease enter your GitHub username. (No @ needed)",
         name: 'username',
         default: 'JessicaDaley',
         validate: function (answer) {
@@ -34,7 +34,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: "What is the name of your GitHub repo?",
+        message: "What is the name of your GitHub repository?",
         name: 'repo',
         default: 'readme-generator',
         validate: function (answer) {
@@ -70,23 +70,18 @@ const questions = [
     },
     {
         type: 'input',
-        message: "Describe the steps required to install your project for the Installation section.",
+        message: "Share the steps required to install your project.",
         name: 'installation'
     },
     {
         type: 'input',
-        message: "Provide instructions and examples of your project in use for the Usage section.",
+        message: "Provide information and instructions pertaining to your project.",
         name: 'usage'
     },
     {
         type: 'input',
         message: "If applicable, provide guidelines on how other developers can contribute to your project.",
         name: 'contribution'
-    },
-    {
-        type: 'input',
-        message: "Provide any tests written for your application and provide examples on how to run them.",
-        name: 'tests'
     },
     {
         type: 'list',
@@ -127,7 +122,7 @@ async function init() {
         // Pass Inquirer userAnswers and GitHub userInfo to readme
         console.log("Generating your README...")
         const input = generateReadme(userAnswers, userInfo);
-        console.log(input);
+        //console.log(input);
 
         // Write table-of-contents to file
         await saveFile('README.md', input);
