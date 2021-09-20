@@ -40,7 +40,7 @@
  
   ## Questions?
   
-  Questions? Please contact me below:
+  Please contact me below:
  
   GitHub: [@JessicaLDaley](https://api.github.com/users/JessicaLDaley)
    Email: jessicadaley127@gmail.com 
