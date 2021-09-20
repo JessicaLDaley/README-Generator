@@ -108,7 +108,7 @@ function writeToFile(fileName, data) {
     });
 }
 
-const writeFileAsync = util.promisify(writeToFile);
+const saveFile = util.promisify(writeToFile);
 
 
 
@@ -130,7 +130,7 @@ async function init() {
         console.log(input);
 
         // Write table-of-contents to file
-        await writeFileAsync('ExampleREADME.md', input);
+        await saveFile('GeneratedREADME.md', input);
 
     } catch (error) {
         console.log(error);
