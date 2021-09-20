@@ -39,5 +39,5 @@
   
   Questions? Please contact me below:
  
-  GitHub: [@undefined](undefined)
+  GitHub: https://github.com/JessicaLDaley
    Email: jessicadaley127@gmail.com 
