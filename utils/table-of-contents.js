@@ -1,34 +1,31 @@
-function generateTable(useranswers, userInfo) {
+function generateTable(userAnswers, userInfo) {
 
   // Generate Table of Contents with user input
   let tableCon = `## Table of Contents`;
 
-  if (useranswers.installation !== '') { tableCon += `
+  if (userAnswers.installation !== '') { tableCon += `
   * [Installation](#installation)` };
 
-  if (useranswers.usage !== '') { tableCon += `
+  if (userAnswers.usage !== '') { tableCon += `
   * [Usage](#usage)` };
 
-  if (useranswers.contribution !== '') { tableCon += `
-  * [Contributing](#contributing)` };
+  if (userAnswers.contribution !== '') { tableCon += `
+  * [Contribution](#contribution)` };
 
-  if (useranswers.tests !== '') { tableCon += `
+  if (userAnswers.tests !== '') { tableCon += `
   * [Tests](#tests)` };
 
 
   // Generate table of contents for required fields of README
   let sections = 
-  `# ${useranswers.title}
-  ![Badge for GitHub repo top language](https://img.shields.io/github/languages/top/${useranswers.username}/${useranswers.repo}?style=flat&logo=appveyor) ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/${useranswers.username}/${useranswers.repo}?style=flat&logo=appveyor)
-  
-  Check out the badges hosted by [shields.io](https://shields.io/).
+  `# ${userAnswers.title}
+
   
   
   ## Description 
+
   
-  *The what, why, and how:* 
-  
-  ${useranswers.description}
+  ${userAnswers.description}
   `
 
   // Add Table of Contents 
@@ -40,7 +37,7 @@ function generateTable(useranswers, userInfo) {
   
 
   // Installation section
-  if (useranswers.installation !== '') {
+  if (userAnswers.installation !== '') {
   
   sections +=
   `
@@ -49,12 +46,12 @@ function generateTable(useranswers, userInfo) {
   
   *Steps required to install the application:*
   
-  ${useranswers.installation}`
+  ${userAnswers.installation}`
   };
   
 
   // Usage section
-  if (useranswers.usage !== '') {
+  if (userAnswers.usage !== '') {
   
   sections +=
   
@@ -64,48 +61,42 @@ function generateTable(useranswers, userInfo) {
   
   *Instructions for use:*
   
-  ${useranswers.usage}`
+  ${userAnswers.usage}`
   };
   
   
   // Contribution section
-  if (useranswers.contribution !== '') {
+  if (userAnswers.contribution !== '') {
   `
   
   ## Contribution 
   
   *If you would like to contribute to this project, follow these instructions on how to do so.*
   
-  ${useranswers.contribution}`
+  ${userAnswers.contribution}`
   };
   
 
   // tests section
-  if (useranswers.tests !== '') {
+  if (userAnswers.tests !== '') {
   
-sections +=
+sections +=  console.log("line 126")
   `
   
   ## Tests
   
   *Tests for application and how to run them:*
   
-  ${useranswers.tests}`
+  ${userAnswers.tests}`
   };
 
 
   // License section 
-sections +=
-  `
-  
-  ## License
-  
-  ${useranswers.license}
-  `;
+  sections += ` ## License ${userAnswers.license} `;
 
 
   // About the developer section
-  
+
   let contactInfo = 
   `
  
@@ -113,22 +104,19 @@ sections +=
   
   Questions? Please contact me below:
  
-  GitHub: [@${useranswers.login}](${useranswers.url})
+  GitHub: [@${userAnswers.login}](${userAnswers.url})
   `;
 
   // If GitHub email is not equal to null, add to About developer section
-  if (useranswers.email !== null) {
+  if (userAnswers.email !== null) {
   
-contactInfo +=
-  `
-  Email: ${useranswers.email}
-  `};
+  contactInfo += ` Email: ${userAnswers.email} `};
 
   // Add about developer section 
   sections += contactInfo;
 
   // Return 
-  return tableCon;
+  return sections;
   
 }
 

@@ -81,7 +81,7 @@ const questions = [
     {
         type: 'input',
         message: "If applicable, provide guidelines on how other developers can contribute to your project.",
-        name: 'contributing'
+        name: 'contribution'
     },
     {
         type: 'input',
@@ -124,7 +124,7 @@ async function init() {
         const userInfo = await api.getUser(userAnswers);
         console.log("Your GitHub user info: ", userInfo);
 
-        // Pass Inquirer useranswers and GitHub userInfo to readme
+        // Pass Inquirer userAnswers and GitHub userInfo to readme
         console.log("Generating your README...")
         const input = generateReadme(userAnswers, userInfo);
         console.log(input);
