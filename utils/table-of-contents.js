@@ -1,4 +1,4 @@
-function generateTable(userAnswers, userInfo) {
+function generateTable(userAnswers, githubInfo) {
 
   // Generate Table of Contents with user input
   let tableCon = `## Table of Contents`;
@@ -21,8 +21,7 @@ function generateTable(userAnswers, userInfo) {
   `# ${userAnswers.title}
 
   
-  
-  ## Description 
+   ## Description 
 
   
   ${userAnswers.description}
@@ -44,9 +43,8 @@ function generateTable(userAnswers, userInfo) {
   
   ## Installation
   
-  *Steps required to install the application:*
-  
-  ${userAnswers.installation}`
+ 
+   ${userAnswers.installation}`
   };
   
 
@@ -54,24 +52,22 @@ function generateTable(userAnswers, userInfo) {
   if (userAnswers.usage !== '') {
   
   sections +=
-  
-  `
+    `
   
   ## Usage 
   
-  *Instructions for use:*
-  
+ 
   ${userAnswers.usage}`
   };
   
   
   // Contribution section
   if (userAnswers.contribution !== '') {
+  sections +=
   `
   
   ## Contribution 
   
-  *If you would like to contribute to this project, follow these instructions on how to do so.*
   
   ${userAnswers.contribution}`
   };
@@ -80,19 +76,20 @@ function generateTable(userAnswers, userInfo) {
   // tests section
   if (userAnswers.tests !== '') {
   
-sections +=  console.log("line 126")
+  sections +=
   `
   
   ## Tests
   
-  *Tests for application and how to run them:*
-  
-  ${userAnswers.tests}`
+ 
+ ${userAnswers.tests}`
   };
 
 
   // License section 
-  sections += ` ## License ${userAnswers.license} `;
+  sections += ` ## License 
+  
+  ${userAnswers.license} `;
 
 
   // About the developer section
@@ -102,9 +99,9 @@ sections +=  console.log("line 126")
  
   ## Questions?
   
-  Questions? Please contact me below:
+  Please contact me below:
  
-  GitHub: [@${userAnswers.login}](${userAnswers.url})
+  GitHub: [@${githubInfo.login}](${githubInfo.url})
   `;
 
   // If GitHub email is not equal to null, add to About developer section
