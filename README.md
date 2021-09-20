@@ -31,7 +31,7 @@
   
   This application was created to give the user a quick and easy way to create a professional README file. Just answer a series of prompts and you'll receive a personalized README in your projects repository. Click the video link below for a quick tutorial on how to use the application. 
   
-  https://drive.google.com/file/d/1tuDmprDJ5gy-7sCSbEkuFM4xmMDqEQwq/view?usp=sharing
+https://drive.google.com/file/d/1tuDmprDJ5gy-7sCSbEkuFM4xmMDqEQwq/view?usp=sharing
   
   
  ## Contribution 
