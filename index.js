@@ -39,7 +39,7 @@ const questions = [
         default: 'readme-generator',
         validate: function (answer) {
             if (answer.length < 1) {
-                return console.log("You must enter a valid GitHub repo to recieve a badge.");
+                return console.log("You must enter a valid GitHub repository");
             }
             return true;
         }
@@ -130,7 +130,7 @@ async function init() {
         console.log(input);
 
         // Write table-of-contents to file
-        await saveFile('GeneratedREADME.md', input);
+        await saveFile('README.md', input);
 
     } catch (error) {
         console.log(error);
