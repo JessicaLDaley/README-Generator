@@ -18,6 +18,17 @@
   
   In order to use this application, just clone the repository in your terminal. Then navigate to the root of the directory and invoke the application using the command node index.js   
   
+  
+  
+  
+  
+  ![invokeapp](https://user-images.githubusercontent.com/79805880/133948756-7eeb0441-cd0c-4000-aeb5-7a6d56686a15.png)
+
+  
+  
+  
+  
+  
   ## Usage 
   
   *Instructions for use:*
